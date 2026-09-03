@@ -1,0 +1,17 @@
+#What I did Today
+
+3.5 Hours - Morning Class
+2 Hours - Revising the Morning Class From youtube again (Commenting on the youtube)
+1 Hour - Speaking English
+1.5 hour - Learning Hard link nad Soft Link & Doing Homework of Learning & Practing What is Absolute path and Relative Path 
+30 mins - Evening Session 
+1 Hour - Coding Practice(Also Pushing the code into github)
+
+
+#Tomorrow's Task
+
+3 Hours - Morning Class
+2 Hours - Revising Linux and Leraning some new command like (realpath and find etc) 
+1 hours - English Practice
+30 mins - Evening Session
+1.5 hour - Coding & Github Practicing
