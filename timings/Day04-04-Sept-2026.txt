@@ -1,0 +1,16 @@
+#What I did Today 
+
+4.5 Hours - Morning Session
+1 Hours - Learning and Getting Hands on with command (find, sed vs awk, umask etc)
+2.5 Hours - Trying to make EC2 instance with Terraform on my own also Watching the todays class on youtube for revising(Includs Commentting on the video)
+30 mins- Speaking English
+30 mins - Evening Session 
+1 hours - Coding Practice (Everyday Homework)
+
+#Tomorrow's Task
+
+3 Hours - Morning Class
+2 Hours - Revising of morning class 
+1 hours - English Practice
+30 mins - Evening Session
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
