@@ -1,0 +1,18 @@
+# What I did Today 
+
+5 hours - Morning Lecture
+1 hour - Getting Hands on myself in the command (terraform apply -auto-approve, useradd, passwd, sudo, growpart, df -h, lslbk, telnet )
+2 hours - Revising the morning session and Commenting on youtube video
+1.5 hours - Shell Scripting Practicing #1/bin/bash from Pathnex previous Videos 
+1 hours - Evening session
+1 hour - coding Practicing
+
+
+#Tomorrow's Task
+
+4 Hours - Morning Class
+2 Hours - Revising of morning class 
+1 hours - English Speaking
+30 mins - Evening Discussion
+1 hours  - Going to Starting a New Task of Making Introduction Video 
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
