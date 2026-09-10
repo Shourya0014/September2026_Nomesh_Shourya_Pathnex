@@ -1,0 +1,19 @@
+# What I did Today 
+
+3 hours - Morning Class
+2 hour - Practicing Devops Getting Hands on Docker commands like (Docker Build , Docker ps, Docker run etc.) 
+2 hours - Revising the morning class and Commenting on youtube video 
+1 hour - Speaking English 
+30 mins - Evening session
+30 mins - Making an Introduction Video
+1 hour - coding Practicing
+
+
+#Tomorrow's Task
+
+4 Hours - Moving further towards more topics in Devops
+2 Hours - Revising of morning class 
+1 hours - English Speaking
+30 mins - Evening Discussion
+1 hours - Making Introduction Video 
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
