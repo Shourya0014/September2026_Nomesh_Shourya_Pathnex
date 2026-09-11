@@ -1,0 +1,20 @@
+# What I did Today 
+
+4 hours - Morning Session , Today we start a new topic Kubernetes 
+2 hour - Understanding Kubernetes Architecture like (MasterNode & Worker Node, Pod, Namespace etc.) and Revising Docker
+2.5 hours - Revising the morning class and Commenting on youtube video 
+1 hour - Speaking English 
+30 mins - Evening session
+30 mins - Making an Introduction Video
+1 hour - coding Practicing
+45 mins - Senior Guide Session 
+
+
+#Tomorrow's Task
+
+4 Hours - Moving further on Kubernetes Most Probably gettign a hands-on
+2 Hours - Revising of morning class 
+1 hours - English Speaking
+30 mins - Evening Discussion
+1 hours - Making Introduction Video 
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
