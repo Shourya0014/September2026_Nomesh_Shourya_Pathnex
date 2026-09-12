@@ -1,0 +1,20 @@
+# What I did Today 
+
+5 hours - Morning Session , Today we start the Hands on in Kubernetes 
+2 hour - Making a cluster in EKS like (MasterNode & Worker Node , scheduller , contoller manager, API server, Kubelet, Kubectl etc) 
+2.5 hours - Revising the morning class and Commenting on youtube video 
+1 hour - Speaking English 
+2.5 hours - Evening Class for Interview Question 
+40 mins - Senior Guide Session on Teams
+30 mins - Making an Introduction Video
+1 hour - coding Practicing
+
+
+#Tomorrow's Task
+
+4 Hours - Moving further on Kubernetes Most Probably gettign a hands-on
+2 Hours - Revising of morning class 
+1 hours - English Speaking
+30 mins - Evening Discussion
+1 hours - Making Introduction Video 
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
