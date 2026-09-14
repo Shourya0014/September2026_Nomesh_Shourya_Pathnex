@@ -1,0 +1,20 @@
+# What I did Today 
+
+4 hours - Morning Session, Today we move further in the Hands on of Kubernetes without AWS Console(GUI) 
+2 hour - Making a cluster in EKS with Terraform  like (ec2.tf , add_on.tf, eks.tf etc .) 
+2.5 hours - Revising the morning class and Commenting on youtube video 
+1 hour - Speaking English 
+2.5 hours - Evening Class for Interview Question 
+30 mins - Making an Introduction Video
+1 hour - coding Practicing
+
+
+#Overmorrom's Task
+
+4 Hours - Moving further on Kubernetes Most Probably getting a hands-on
+2 Hours - Revising of morning class 
+1 hours - English Speaking
+30 mins - Evening Discussion
+1 hours - Making Introduction Video 
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
+
