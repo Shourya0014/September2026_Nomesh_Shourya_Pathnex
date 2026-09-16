@@ -1,0 +1,20 @@
+# What I did Today 
+
+2.5 hours - Morning Session, we covered Kubernetes , Deployment, Troubleshooting 
+2 hours - Practicing K8s & Commenting on youtube video of Morning session 
+1 hour - Speaking English
+1 hour - Senior Session of Older Batch  
+30 mins - Evening Session  
+30 mins - Making an Introduction Video
+1 hour - coding Practicing
+
+
+#Tomorrow's Task
+
+4 Hours - Moving further on Kubernetes Most Probably the Affinity and Anti-Affinity 
+2 Hours - Revising of morning class 
+1 hours - English Speaking
+30 mins - Evening Discussion
+1 hours - Making Introduction Video 
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
+
