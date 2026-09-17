@@ -1,0 +1,20 @@
+# What I did Today 
+
+3.5 hours - Morning Session, we covered DeamonSet, Deployment, Affinity, Anti-Affinity, Taint & Toleration 
+2 hours - Hands-on Label under Node affinity (Required vs Preferred) & Commenting on youtube video of Morning session 
+1 hour - Speaking English 
+30 mins - Evening Session  
+30 mins - Making an Introduction Video
+1 hour - coding Practicing
+1 hour - Senior Session of Previous Batch
+
+
+#Tomorrow's Task
+
+4 Hours - Moving further on Advanced topic of K8s with Helm chart  
+2 Hours - Revising of morning class 
+1 hours - English Speaking
+30 mins - Evening Discussion
+1 hours - Making Introduction Video 
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
+
