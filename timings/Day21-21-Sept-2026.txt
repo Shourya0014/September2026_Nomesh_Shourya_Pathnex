@@ -1,0 +1,18 @@
+# What I did Today 
+
+4 Hours - Revising and Hands-on Terraform All Topics (init, plan, apply, destory, state, taint, workspace, count , for_each etc)
+1.5 hour - Practice English/English series
+30 mins - Evening Session
+30 mins - Making an Introduction Video
+1 hour - coding Practicing
+
+
+#Tommorrow's Task
+
+4 Hours - Morning session Moving onto next Topic because Terraform is Completed
+2 Hours - Revising of morning class 
+1 hours - English Speaking
+30 mins - Evening Discussion
+1 hours - Making Introduction Video 
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
+
