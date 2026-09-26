@@ -1,0 +1,20 @@
+# What I did Today 
+
+3 Hours - Morning session we cover New Topic Logging in which we learn about Logging tool (ELK stack)
+2 Hours - Revising of morning class  and commenting on that youtbe Video
+1 hour - Hands-on ELK stack building a dashboard on port number http://52.66.202.68:5601
+1 hour - Practice English
+30 mins - Evening Session
+1 hour - coding Practicing
+30 mins - Making an Introduction Video
+
+
+#Tommorrow's Task
+
+4 Hours - Morning session Moving forward on to next topic because Logging is completed 
+2 Hours - Revising of morning class 
+1 hours - English Speaking
+30 mins - Evening Discussion
+1 hours - Making Introduction Video 
+1.5 hour - Doing Homework which includes Commentting on morning lecture on youtube, Coding & Github Practicing
+
