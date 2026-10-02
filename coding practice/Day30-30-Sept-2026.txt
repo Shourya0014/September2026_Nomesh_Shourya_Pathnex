@@ -1,0 +1,131 @@
+# Day 30 — Final Project Submission and Review
+
+##  Final Task — Deploy a Fully Integrated Pathnex Application with CI/CD Pipeline
+
+# Deploy with Terraform: Provision your infrastructure (VPC, EC2 instances, RDS, etc.).
+
+module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  name    = "pathnex-${var.env}"
+  cidr    = "10.0.0.0/16"
+  azs             = ["ap-south-1a", "ap-south-1b"]
+  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
+  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
+  enable_nat_gateway = true
+  single_nat_gateway = true   
+}
+
+module "eks" {
+  source          = "terraform-aws-modules/eks/aws"
+  cluster_name    = "pathnex-${var.env}"
+  cluster_version = "1.30"
+  vpc_id          = module.vpc.vpc_id
+  subnet_ids      = module.vpc.private_subnets
+  eks_managed_node_groups = {
+    default = { instance_types = ["t3.medium"], min_size = 2, max_size = 4, desired_size = 2 }
+  }
+}
+
+module "rds" {
+  source  = "terraform-aws-modules/rds/aws"
+  identifier = "pathnex-${var.env}"
+  engine = "postgres"
+  engine_version = "16"
+  instance_class = "db.t3.micro"
+  allocated_storage = 20
+  db_name  = "pathnex"
+  username = "pathnex_admin"
+  manage_master_user_password = true  
+  subnet_ids = module.vpc.private_subnets
+  vpc_security_group_ids = [aws_security_group.rds.id]
+  create_db_subnet_group = true
+}
+
+resource "aws_security_group" "rds" {
+  vpc_id = module.vpc.vpc_id
+  ingress {
+    from_port       = 5432
+    to_port         = 5432
+    protocol        = "tcp"
+    security_groups = [module.eks.node_security_group_id]  
+  }
+}
+
+# Set Up Kubernetes: Deploy the application stack using Kubernetes and Helm.
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: pathnex-backend
+spec:
+  scaleTargetRef: { apiVersion: apps/v1, kind: Deployment, name: pathnex-backend }
+  minReplicas: 2
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource: { name: cpu, target: { type: Utilization, averageUtilization: 70 }
+       }
+
+## CI/CD Integration: Use Jenkins and GitLab to automate deployment and monitoring.
+
+stages: [test, build, scan, push]
+
+test:
+  stage: test
+  script: [npm ci, npm test]
+
+build:
+  stage: build
+  script: docker build -t $ECR_REPO:$CI_COMMIT_SHORT_SHA app/
+
+scan:
+  stage: scan
+  script: trivy image --exit-code 1 --severity HIGH,CRITICAL $ECR_REPO:$CI_COMMIT_SHORT_SHA
+
+push:
+  stage: push
+  script:
+    - aws ecr get-login-password | docker login --username AWS --password-stdin $ECR_REGISTRY
+    - docker push $ECR_REPO:$CI_COMMIT_SHORT_SHA
+    - curl -X POST "$JENKINS_URL/job/pathnex-deploy/buildWithParameters?TAG=$CI_COMMIT_SHORT_SHA" --user "$JENKINS_USER:$JENKINS_TOKEN"
+  only: [main]
+
+ # Jenkins
+ pipeline {
+  agent any
+  parameters { string(name: 'TAG') }
+  stages {
+    stage('Deploy staging') {
+      steps {
+        sh "helm upgrade --install pathnex helm/pathnex -n staging -f helm/pathnex/values-staging.yaml --set image.tag=${params.TAG} --wait"
+      }
+    }
+    stage('Smoke test') { steps { sh './ci/smoke-test.sh staging' } }
+    stage('Approve') { steps { input 'Promote to production?' } }
+    stage('Deploy prod') {
+      steps {
+        sh "helm upgrade --install pathnex helm/pathnex -n prod -f helm/pathnex/values-prod.yaml --set image.tag=${params.TAG} --wait --atomic"
+      }
+    }
+  }
+}
+
+##Security and Scaling: Ensure secure access and scalability with proper network policies and moni
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: { name: default-deny, namespace: prod }
+spec:
+  podSelector: {}
+  policyTypes: [Ingress, Egress]
+  
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: { name: allow-frontend-to-backend, namespace: prod }
+spec:
+  podSelector: { matchLabels: { app: pathnex-backend } }
+  policyTypes: [Ingress]
+  ingress:
+    - from: [{ podSelector: { matchLabels: { app: pathnex-frontend } } }]
+      ports: [{ port: 8080 }]
+
