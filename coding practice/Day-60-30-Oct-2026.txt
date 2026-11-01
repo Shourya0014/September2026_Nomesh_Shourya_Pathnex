@@ -1,0 +1,122 @@
+# Day 60 — SPEED TYPING (LEVEL 3)
+# Ansible:
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create admin user
+      user:
+        name: pathnex-admin
+        shell: /bin/bash
+        state: present
+    - name: Add SSH key
+      authorized_key:
+        user: pathnex-admin
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+# Terraform
+resource "aws_instance" "web" {
+  ami           = "ami-xxxxxxxx"
+  instance_type = "c5.xlarge"
+
+  tags = {
+    Project = "Pathnex-Training"
+  }
+}
+
+# Kubernetes
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pathnex
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pathnex
+  template:
+    metadata:
+      labels:
+        app: pathnex
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pathnex
+spec:
+  type: ClusterIP
+  selector:
+    app: pathnex
+  ports:
+    - port: 80
+      targetPort: 80
+
+# Shell — monitor.sh
+#!/bin/bash
+echo "1) IP  2) Disk  3) Memory"
+read -p "Choose: " n
+case $n in
+  1) hostname -I ;;
+  2) df -h ;;
+  3) free -h ;;
+  *) echo "Invalid choice" ;;
+esac
+
+# Jenkinsfile
+pipeline {
+  agent any
+  environment {
+    INSTITUTE_NAME = 'Pathnex'
+    TEAM = 'DevOps'
+    ENV = 'prod'
+    PROJECT = 'Pathnex-Training'
+  }
+  stages {
+    stage('Infrastructure') {
+      steps {
+        sh 'cd terraform && terraform init && terraform apply -auto-approve'
+      }
+    }
+    stage('App Deployment') {
+      steps {
+        sh 'ansible-playbook user.yml'
+        sh 'kubectl apply -f k8s.yml'
+      }
+    }
+    stage('Monitoring Checks') {
+      steps {
+        sh 'bash monitor.sh'
+      }
+    }
+  }
+}
+
+# .gitlab-ci.yml
+variables:
+  INSTITUTE_NAME: "Pathnex"
+  TEAM: "DevOps"
+  ENV: "prod"
+  PROJECT: "Pathnex-Training"
+
+stages: [infrastructure, app_deployment, monitoring_checks]
+
+infrastructure:
+  stage: infrastructure
+  script:
+    - cd terraform
+    - terraform init
+    - terraform apply -auto-approve
+
+app_deployment:
+  stage: app_deployment
+  script:
+    - ansible-playbook user.yml
+    - kubectl apply -f k8s.yml
+
+monitoring_checks:
+  stage: monitoring_checks
+  script:
+    - bash monitor.sh
